@@ -1,5 +1,3 @@
 #!/usr/bin/with-contenv sh
-
 # sed -i '' "s/HOST/${RBENV_SHELL}/g" /etc/nginx/conf.d/node.conf
-
 exec nginx;

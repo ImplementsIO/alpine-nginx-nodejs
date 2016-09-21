@@ -24,8 +24,6 @@ RUN apk upgrade --update && \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-ENTRYPOINT ["/init"]
-
 RUN mkdir -p /app && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
@@ -40,5 +38,5 @@ RUN cd /app && \
     npm install --production
 
 EXPOSE 80 443 3000
-
+ENTRYPOINT ["/init"]
 CMD ["node", "/app/index.js"]
