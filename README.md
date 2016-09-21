@@ -22,6 +22,8 @@ ADD root/ /
 
 COPY src/ /app
 
+WORKDIR /app/backend
+
 RUN cd /app && \
     npm install --production && \
     apk del gcc g++ linux-headers && \
@@ -30,6 +32,10 @@ RUN cd /app && \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html  && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
+
+EXPOSE 80 443 3000
+
+ENTRYPOINT ["/init"]
 
 # Replace the entry with yours.
 CMD ["node", "/app/backend/bin/autoload.js"]
