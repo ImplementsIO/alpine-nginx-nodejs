@@ -4,10 +4,11 @@ MAINTAINER Thonatos.Yang <thonatos.yang@gmail.com>
 LABEL vendor=implements.io
 LABEL io.implements.version=0.1.0
 
-ENV S6_OVERLAY_VERSION=v1.17.2.0 \    
-    NODE_VERSION=v4.5.0 \ 
-    NPM_VERSION=2 \
+ENV S6_OVERLAY_VERSION=v1.17.2.0 \            
+    NODE_VERSION=v6.9.2 \     
+    NPM_VERSION=3 \
     HOME=/root
+    
 
 RUN apk upgrade --update && \        
     apk add --update bind-tools git curl make gcc g++ python linux-headers libgcc libstdc++ nginx && \
